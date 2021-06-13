@@ -1,8 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-import HomePage from '@/components/HomePage';
-import RechargeOnlinePage from '@/components/RechargeOnlinePage';
+import HomePage from "@/components/HomePage";
+import RechargeOnlinePage from "@/components/RechargeOnlinePage";
 
 Vue.use(VueRouter);
 
