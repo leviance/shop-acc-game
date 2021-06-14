@@ -37,7 +37,7 @@
               <span>Ví: 0 VNĐ</span>
             </div>
           </router-link> -->
-          <router-link to="/">
+          <router-link :to="{ name: 'Register' }">
             <div class="btn-logout"><strong>ĐĂNG KÝ</strong></div>
           </router-link>
           <!-- <router-link to="/">

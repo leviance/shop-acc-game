@@ -164,8 +164,6 @@ section {
 
 @media (max-width: 480px) {
   footer {
-    margin-top: 30px !important;
-
     .wrap-footer {
       p {
         line-height: 20px;

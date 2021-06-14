@@ -1,5 +1,5 @@
 <template>
-  <div class="login">
+  <div class="login-page">
     <div class="wrap-login-form">
       <p class="title"><strong>Đăng nhập tài khoản</strong></p>
       <div class="border-b"></div>
@@ -14,9 +14,9 @@
         <i class="fa fa-facebook-official" aria-hidden="true"></i> Đăng nhập qua
         Facebook
       </div>
-      <div class="btn-create-new">
+      <router-link class="btn-create-new" :to="{ name: 'Register' }">
         <i class="fa fa-user-plus" aria-hidden="true"></i> Tạo tài khoản
-      </div>
+      </router-link>
     </div>
   </div>
 </template>
@@ -30,11 +30,12 @@ export default {
 </script>
 
 <style lang="scss">
-.login {
+.login-page,
+.register-page {
   width: 100%;
-  height: calc(100% - 53px);
+  height: calc(100% - 74px);
   background-color: white;
-  margin-top: 53px;
+  margin-top: 74px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,6 +49,7 @@ export default {
     padding: 20px;
     margin: 10px;
     border-radius: 10px;
+    max-width: 380px;
 
     .border-b {
       width: 150px;
