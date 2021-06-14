@@ -2,7 +2,13 @@
   <div class="list-game-account">
     <div class="title"><strong>danh mục acc game</strong></div>
     <div class="list-type-account">
-      <router-link to="" class="type-account">
+      <router-link
+        :to="{
+          name: 'AccountCategories',
+          params: { categoryName: 'lien-minh-huyen-thoai' },
+        }"
+        class="type-account"
+      >
         <div class="wrap-type-account">
           <img
             class="img-type-account"
@@ -16,7 +22,13 @@
           </div>
         </div>
       </router-link>
-      <router-link to="" class="type-account">
+      <router-link
+        :to="{
+          name: 'AccountCategories',
+          params: { categoryName: 'lien-quan' },
+        }"
+        class="type-account"
+      >
         <div class="wrap-type-account">
           <img
             class="img-type-account"
@@ -30,7 +42,13 @@
           </div>
         </div>
       </router-link>
-      <router-link to="" class="type-account">
+      <router-link
+        :to="{
+          name: 'AccountCategories',
+          params: { categoryName: 'toc-chien' },
+        }"
+        class="type-account"
+      >
         <div class="wrap-type-account">
           <img
             class="img-type-account"
@@ -44,7 +62,13 @@
           </div>
         </div>
       </router-link>
-      <router-link to="" class="type-account">
+      <router-link
+        :to="{
+          name: 'AccountCategories',
+          params: { categoryName: 'freefire' },
+        }"
+        class="type-account"
+      >
         <div class="wrap-type-account">
           <img
             class="img-type-account"
