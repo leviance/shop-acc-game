@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 
 import HomePage from "@/components/HomePage";
 import RechargeOnlinePage from "@/components/RechargeOnlinePage";
+import LoginPage from "@/components/LoginPage";
 
 Vue.use(VueRouter);
 
@@ -13,9 +14,14 @@ const routes = [
     component: HomePage,
   },
   {
-    path: "/",
+    path: "/recharge",
     name: "RechargeOnline",
     component: RechargeOnlinePage,
+  },
+  {
+    path: "/login",
+    name: "Login",
+    component: LoginPage,
   },
 ];
 
