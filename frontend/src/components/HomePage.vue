@@ -35,23 +35,6 @@
         <div class="title"><strong>mini game siêu hot</strong></div>
       </div>
     </section>
-    <footer>
-      <div class="wrap-footer">
-        <p>
-          <strong
-            >HỆ THỐNG BÁN ACC TỰ ĐỘNG <br />
-            ĐẢM BẢO UY TÍN VÀ CHẤT LƯỢNG.</strong
-          >
-        </p>
-        <p>
-          <strong
-            >CHÚNG TÔI LUÔN LẤY UY TÍN LÀM HÀNG ĐẦU ĐỐI VỚI KHÁCH HÀNG. HI
-            <br />
-            VỌNG SẼ ĐƯỢC PHỤC VỤ CÁC BẠN. CẢM ƠN!</strong
-          >
-        </p>
-      </div>
-    </footer>
   </div>
 </template>
 
@@ -72,6 +55,10 @@ export default {
     closeNoticeBox() {
       this.showNoticeBox = false;
     },
+  },
+
+  mounted() {
+    this.$store.state.darkMode = true;
   },
 };
 </script>
@@ -163,6 +150,7 @@ section {
     justify-content: center;
     align-items: center;
     background-color: var(--black-three);
+    margin-bottom: 60px;
 
     .title {
       text-transform: uppercase;
@@ -170,26 +158,6 @@ section {
       text-align: center;
       padding: 30px 0px;
       color: var(--yellow-active);
-    }
-  }
-}
-
-footer {
-  margin-top: 60px;
-  width: 100%;
-  background-color: #000000;
-  color: white;
-
-  .wrap-footer {
-    max-width: var(--max-width);
-    margin: 0px auto;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-
-    p {
-      line-height: 30px;
-      padding: 0px 40px;
     }
   }
 }
