@@ -7,6 +7,7 @@ import LoginPage from "@/components/LoginPage";
 import RegisterPage from "@/components/RegisterPage";
 import AccountCategories from "@/components/AccountCategories";
 import ListAccountsPage from "@/components/ListAccountsPage";
+import DetailAccountPage from "@/components/DetailAccountPage";
 
 Vue.use(VueRouter);
 
@@ -17,6 +18,7 @@ const routes = [
   { path: "/register", name: "Register", component: RegisterPage },
   { path: "/account-categories/:categoryName", name: "AccountCategories", component: AccountCategories },
   { path: "/account/:typeAccount", name: "ListAccountsPage", component: ListAccountsPage },
+  { path: "/detail/:accountID", name: "DetailAccountPage", component: DetailAccountPage },
   { path: "*", component: HomePage },
 ];
 
