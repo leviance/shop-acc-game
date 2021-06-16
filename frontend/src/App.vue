@@ -106,7 +106,7 @@ export default {
   --black-two: #131318;
   --black-three: rgba(0, 0, 0, 0.78);
   --black-border: rgba(0, 0, 0, 0.2);
-  --grey-text: rgba(100,116,139,1);
+  --grey-text: rgba(100, 116, 139, 1);
   --grey-btn: #35495e;
   --grey-border: #e2e8f0;
   --grey-btn-light: #e2e8f0a4;

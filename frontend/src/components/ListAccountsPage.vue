@@ -5,7 +5,7 @@
       <div class="filter-block">
         <div class="filter-option">
           <div class="type-filter"><span>Mã số</span></div>
-          <input type="text">
+          <input type="text" />
         </div>
         <div class="filter-option">
           <div class="type-filter"><span>Giá từ</span></div>
@@ -40,13 +40,17 @@
         <div class="filter-option">
           <select name="find-champ-name" id="find-champ-name">
             <option>Tìm tên tướng</option>
-            <option v-for="(champion, index) in listChampions" :key="index">{{ champion }}</option>
+            <option v-for="(champion, index) in listChampions" :key="index">
+              {{ champion }}
+            </option>
           </select>
         </div>
         <div class="filter-option">
           <select name="find-champ-name" id="find-champ-skin">
             <option>Tìm tên trang phục</option>
-            <option v-for="(skin, index) in listSkins" :key="index">{{ skin }}</option>
+            <option v-for="(skin, index) in listSkins" :key="index">
+              {{ skin }}
+            </option>
           </select>
         </div>
         <div class="filter-option list-btn-action">
@@ -56,7 +60,10 @@
       </div>
       <div class="list-account">
         <router-link
-          :to="{name: 'DetailAccountPage', params: {accountID: data.accountID}}"
+          :to="{
+            name: 'DetailAccountPage',
+            params: { accountID: data.accountID },
+          }"
           class="account-block"
           v-for="(data, index) in testData"
           :key="index"
@@ -68,27 +75,39 @@
               :src="require(`@/assets/images/account-img/${data.img}`)"
               :alt="data.name"
             />
-						<div class="account-infor">
-							<div><p>Tướng: <b>122</b></p></div>
-							<div><p>Trang phục: <b>67</b></p></div>
-							<div><p>Rank: <b>Không</b></p></div>
-							<div><p>Thông tin: <b>SĐT đổi</b></p></div>
-						</div>
-						<div class="list-btn">
-							<div class="btn-price">310,000 đ</div>
-							<div class="btn-detail"><strong>CHI TIẾT</strong></div>
-						</div>
+            <div class="account-infor">
+              <div>
+                <p>Tướng: <b>122</b></p>
+              </div>
+              <div>
+                <p>Trang phục: <b>67</b></p>
+              </div>
+              <div>
+                <p>Rank: <b>Không</b></p>
+              </div>
+              <div>
+                <p>Thông tin: <b>SĐT đổi</b></p>
+              </div>
+            </div>
+            <div class="list-btn">
+              <div class="btn-price">310,000 đ</div>
+              <div class="btn-detail"><strong>CHI TIẾT</strong></div>
+            </div>
           </div>
         </router-link>
       </div>
       <div class="paging">
         <div class="wrap-paging">
-          <div class="btn-pre-page"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
+          <div class="btn-pre-page">
+            <i class="fa fa-angle-left" aria-hidden="true"></i>
+          </div>
           <div class="btn-num-page active">1</div>
           <div class="btn-num-page">2</div>
           <div class="btn-num-page">3</div>
           <div class="btn-num-page">8</div>
-          <div class="btn-next-page"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+          <div class="btn-next-page">
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+          </div>
         </div>
       </div>
     </div>
@@ -173,44 +192,157 @@ export default {
         },
       ],
       listChampions: [
-        'Aatrox', 'Ahri', 'Akali', 'Alistar',
-        'Amumu', 'Anivia', 'Annie', 'Aphelios',
-        'Ashe', 'AurelionSol', 'Azir', 'Bard',
-        'Blitzcrank', 'Brand', 'Braum', 'Caitlyn',
-        'Camille', 'Cassiopeia', 'ChoGath', 'Corki',
-        'Darius', 'Diana', 'Draven', 'DrMundo',
-        'Ekko', 'Elise', 'Evelynn', 'Ezreal',
-        'Fiddlesticks', 'Fiora', 'Fizz', 'Galio',
-        'Gangplank', 'Garen', 'Gnar', 'Gragas',
-        'Graves', 'Hecarim', 'Heimerdinger', 'Hello',
-        'Illaoi', 'Invern', 'Irelia', 'Ivern',
-        'Janna', 'Jarvan IV', 'JarvanIV', 'Jax',
-        'Jayce', 'Jhin', 'Jinx', 'KaiSa',
-        'Kalista', 'Karma', 'Karthus', 'Kassadin',
-        'Katarina', 'Kayle', 'Kayn', 'Kennen',
-        'KhaZix', 'Kindred', 'Kled', 'KogMaw',
-        'LeBlanc', 'LeeSin', 'Leona', 'Lissandra',
-        'Lucian', 'Lulu', 'Lux', 'Malphite',
-        'Malzahar', 'Maokai', 'MasterYi', 'MissFortune',
-        'MonkeyKing', 'Mordekaiser', 'Morgana', 'Nami',
-        'Nasus', 'Nautilus', 'Neeko', 'Nidalee',
-        'Nocturne', 'Nunu & Willump', 'Nunu', 'Olaf',
-        'Orianna', 'Ornn', 'Pantheon', 'Poppy',
-        'Pyke', 'Qiyana', 'Quinn', 'Rakan',
-        'Rammus', 'RekSai', 'Renekton', 'Rengar',
-        'Riven', 'Rumble', 'Ryze', 'Sejuani',
-        'Senna', 'Shaco', 'Shen', 'Shyvana',
-        'Singed', 'Sion', 'Sivir', 'Skarner',
-        'Sona', 'Soraka', 'Swain', 'Sylas',
-        'Syndra', 'TahmKench', 'Taliyah', 'Talon',
-        'Taric', 'Teemo', 'Thresh', 'Tristana',
-        'Trundle', 'Tryndamere', 'TwistedFate', 'Twitch',
-        'Udyr', 'Urgot', 'Varus', 'Vayne',
-        'Veigar', 'VelKoz', 'Vi', 'Viktor',
-        'Vladimir', 'Volibear', 'Warwick', 'Xayah',
-        'Xerath', 'XinZhao', 'Yasuo', 'Yorick',
-        'Yuumi', 'Zac', 'Zed', 'Ziggs',
-        'Zilean', 'Zoe', 'Zyra'
+        "Aatrox",
+        "Ahri",
+        "Akali",
+        "Alistar",
+        "Amumu",
+        "Anivia",
+        "Annie",
+        "Aphelios",
+        "Ashe",
+        "AurelionSol",
+        "Azir",
+        "Bard",
+        "Blitzcrank",
+        "Brand",
+        "Braum",
+        "Caitlyn",
+        "Camille",
+        "Cassiopeia",
+        "ChoGath",
+        "Corki",
+        "Darius",
+        "Diana",
+        "Draven",
+        "DrMundo",
+        "Ekko",
+        "Elise",
+        "Evelynn",
+        "Ezreal",
+        "Fiddlesticks",
+        "Fiora",
+        "Fizz",
+        "Galio",
+        "Gangplank",
+        "Garen",
+        "Gnar",
+        "Gragas",
+        "Graves",
+        "Hecarim",
+        "Heimerdinger",
+        "Hello",
+        "Illaoi",
+        "Invern",
+        "Irelia",
+        "Ivern",
+        "Janna",
+        "Jarvan IV",
+        "JarvanIV",
+        "Jax",
+        "Jayce",
+        "Jhin",
+        "Jinx",
+        "KaiSa",
+        "Kalista",
+        "Karma",
+        "Karthus",
+        "Kassadin",
+        "Katarina",
+        "Kayle",
+        "Kayn",
+        "Kennen",
+        "KhaZix",
+        "Kindred",
+        "Kled",
+        "KogMaw",
+        "LeBlanc",
+        "LeeSin",
+        "Leona",
+        "Lissandra",
+        "Lucian",
+        "Lulu",
+        "Lux",
+        "Malphite",
+        "Malzahar",
+        "Maokai",
+        "MasterYi",
+        "MissFortune",
+        "MonkeyKing",
+        "Mordekaiser",
+        "Morgana",
+        "Nami",
+        "Nasus",
+        "Nautilus",
+        "Neeko",
+        "Nidalee",
+        "Nocturne",
+        "Nunu & Willump",
+        "Nunu",
+        "Olaf",
+        "Orianna",
+        "Ornn",
+        "Pantheon",
+        "Poppy",
+        "Pyke",
+        "Qiyana",
+        "Quinn",
+        "Rakan",
+        "Rammus",
+        "RekSai",
+        "Renekton",
+        "Rengar",
+        "Riven",
+        "Rumble",
+        "Ryze",
+        "Sejuani",
+        "Senna",
+        "Shaco",
+        "Shen",
+        "Shyvana",
+        "Singed",
+        "Sion",
+        "Sivir",
+        "Skarner",
+        "Sona",
+        "Soraka",
+        "Swain",
+        "Sylas",
+        "Syndra",
+        "TahmKench",
+        "Taliyah",
+        "Talon",
+        "Taric",
+        "Teemo",
+        "Thresh",
+        "Tristana",
+        "Trundle",
+        "Tryndamere",
+        "TwistedFate",
+        "Twitch",
+        "Udyr",
+        "Urgot",
+        "Varus",
+        "Vayne",
+        "Veigar",
+        "VelKoz",
+        "Vi",
+        "Viktor",
+        "Vladimir",
+        "Volibear",
+        "Warwick",
+        "Xayah",
+        "Xerath",
+        "XinZhao",
+        "Yasuo",
+        "Yorick",
+        "Yuumi",
+        "Zac",
+        "Zed",
+        "Ziggs",
+        "Zilean",
+        "Zoe",
+        "Zyra",
       ],
       listSkins: [
         "Annie Kinh Dị",
@@ -1212,8 +1344,8 @@ export default {
         "Jhin Cao Bồi",
         "Jhin Huyết Nguyệt",
         "SKT T1 Jhin",
-        "SIÊU PHẨM: Jhin"
-      ]
+        "SIÊU PHẨM: Jhin",
+      ],
     };
   },
 
@@ -1241,11 +1373,11 @@ export default {
     flex-direction: column;
 
     .title {
-			text-transform: uppercase;
-			font-size: 1.5rem;
-			text-align: left;
-			padding: 15px 10px;
-			color: var(--black-one);
+      text-transform: uppercase;
+      font-size: 1.5rem;
+      text-align: left;
+      padding: 15px 10px;
+      color: var(--black-one);
     }
 
     .filter-block {
@@ -1260,7 +1392,8 @@ export default {
         justify-content: space-between;
         align-items: center;
 
-        .btn-search, .btn-view-all {
+        .btn-search,
+        .btn-view-all {
           width: 48%;
           height: 100%;
           display: flex;
@@ -1270,8 +1403,12 @@ export default {
           justify-content: center;
         }
 
-        .btn-search {background: var(--red-btn);}
-        .btn-view-all {background-color: var(--grey-btn);}
+        .btn-search {
+          background: var(--red-btn);
+        }
+        .btn-view-all {
+          background-color: var(--grey-btn);
+        }
       }
 
       .filter-option {
@@ -1287,13 +1424,23 @@ export default {
           font-size: 1rem;
         }
 
-        select { width: 101%;}
-        input, #price-from, #price-to {
+        select {
+          width: 101%;
+        }
+        input,
+        #price-from,
+        #price-to {
           width: calc(100% - 95px);
           border-left: 2px solid var(--grey-border) !important;
-        } 
-        #find-champ-name, #find-champ-skin, .type-filter { background-color: var(--grey-btn-light); height: 101%;}
-        input, select {
+        }
+        #find-champ-name,
+        #find-champ-skin,
+        .type-filter {
+          background-color: var(--grey-btn-light);
+          height: 101%;
+        }
+        input,
+        select {
           padding: 10px;
           outline: none;
           border: none;
@@ -1303,12 +1450,12 @@ export default {
     }
 
     .list-account {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        grid-gap: 20px;
-        padding: 0 10px;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-gap: 20px;
+      padding: 0 10px;
 
-        .account-block {
+      .account-block {
         grid-column: span 3;
         display: flex;
         border: 1px solid var(--black-border);
@@ -1316,14 +1463,14 @@ export default {
         transition: 0.4s;
 
         .wrap-account-block {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            position: relative;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          position: relative;
 
-            .account-id {
+          .account-id {
             position: absolute;
             top: 5px;
             right: 5px;
@@ -1335,76 +1482,86 @@ export default {
             border-radius: 4px;
           }
 
-            .account-image {
+          .account-image {
             width: 100%;
+          }
+
+          .account-infor {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            width: 100%;
+            grid-gap: 10px;
+            padding: 10px;
+
+            > div {
+              grid-column: span 6;
+              text-align: center;
+
+              p {
+                font-size: 0.9rem;
+              }
+            }
+          }
+
+          .list-btn {
+            width: 100%;
+            padding: 0 10px;
+            display: flex;
+            justify-content: space-around;
+
+            .btn-price,
+            .btn-detail {
+              padding: 7px 17px;
+              border: 1px solid var(--red-text);
+              border-radius: 5px;
+              font-size: 0.9rem;
             }
 
-						.account-infor {
-							display: grid;
-							grid-template-columns: repeat(12, 1fr);
-							width: 100%;
-							grid-gap: 10px;
-							padding: 10px;
-
-							>div {
-								grid-column: span 6;
-								text-align: center;
-
-								p {font-size: 0.9rem;}
-							}
-						}
-
-						.list-btn {
-							width: 100%;
-							padding: 0 10px;
-							display: flex;
-							justify-content: space-around;
-
-							.btn-price, .btn-detail {
-								padding: 7px 17px;
-								border: 1px solid var(--red-text);
-								border-radius: 5px;
-								font-size: 0.9rem;
-							}
-
-							.btn-price { color: var(--red-text);}
-							.btn-detail {
-								background-color: var(--red-btn);
-								color: #ffffff;
-								transition: 0.4s;
-							}
-							.btn-detail:hover { 
-								background-color: var(--yellow-active); 
-								color: black; 
-								border: 1px solid var(--yellow-active);
-							}
-						}
-        	}
+            .btn-price {
+              color: var(--red-text);
+            }
+            .btn-detail {
+              background-color: var(--red-btn);
+              color: #ffffff;
+              transition: 0.4s;
+            }
+            .btn-detail:hover {
+              background-color: var(--yellow-active);
+              color: black;
+              border: 1px solid var(--yellow-active);
+            }
+          }
         }
+      }
 
-        .account-block:hover {
+      .account-block:hover {
         box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
-        }
-   	}
+      }
+    }
 
-     .paging {
-       display: flex;
-       justify-content: space-around;
-       margin: 30px 0;
-       .wrap-paging {
-         display: flex;
-         .btn-num-page, .btn-pre-page, .btn-next-page {
-           font-size: 1.2rem;
-           color: var(--grey-text);
-           padding: 7px 14px;
-           border-radius: 5px;
-           border: 1px solid var(--grey-btn);
-           margin: 0 5px;
-           cursor: pointer;
-         }
-         .active {background-color: var(--red-btn); color: white !important;}
-       }
-     }
+    .paging {
+      display: flex;
+      justify-content: space-around;
+      margin: 30px 0;
+      .wrap-paging {
+        display: flex;
+        .btn-num-page,
+        .btn-pre-page,
+        .btn-next-page {
+          font-size: 1.2rem;
+          color: var(--grey-text);
+          padding: 7px 14px;
+          border-radius: 5px;
+          border: 1px solid var(--grey-btn);
+          margin: 0 5px;
+          cursor: pointer;
+        }
+        .active {
+          background-color: var(--red-btn);
+          color: white !important;
+        }
+      }
+    }
   }
 }
 
@@ -1412,9 +1569,10 @@ export default {
   .list-account .account-block {
     grid-column: span 6 !important;
 
-		.btn-price, .btn-detail {
-			padding: 12px 22px !important;
-		}
+    .btn-price,
+    .btn-detail {
+      padding: 12px 22px !important;
+    }
   }
 
   .wrap-list-accounts {
@@ -1427,7 +1585,7 @@ export default {
 }
 
 @media (max-width: 480px) {
-	.list-account .account-block {
+  .list-account .account-block {
     grid-column: span 12 !important;
   }
 
@@ -1438,7 +1596,10 @@ export default {
       .filter-option {
         grid-column: span 12 !important;
 
-        .btn-search, .btn-view-all { padding: 12px 0;}
+        .btn-search,
+        .btn-view-all {
+          padding: 12px 0;
+        }
       }
     }
   }
