@@ -4,7 +4,7 @@
       <div class="title"><strong>danh mục acc liên minh</strong></div>
       <div class="list-account-category">
         <router-link
-          :to="{name: 'ListAccountsPage', params: {typeAccount: data.type}}"
+          :to="{ name: 'ListAccountsPage', params: { typeAccount: data.type } }"
           class="account-type"
           v-for="(data, index) in testData"
           :key="index"
@@ -42,70 +42,70 @@ export default {
           img: "acc-lmht-tu-chon.gif",
           name: "acc liên minh tự chọn",
           numAcc: "3,900",
-					type: "option-account",
+          type: "option-account",
           price: null,
         },
         {
           img: "acc-lmht-sieu-re.gif",
           name: "acc liên minh siêu rẻ",
           numAcc: "3,900",
-					type: "option-account",
+          type: "option-account",
           price: null,
         },
         {
           img: "acc-lmht-vip.gif",
           name: "acc liên minh vip",
           numAcc: "3,900",
-					type: "option-account",
+          type: "option-account",
           price: null,
         },
         {
           img: "acc-not-rank.gif",
           name: "acc chưa rank mùa nào",
           numAcc: "3,900",
-					type: "option-account",
+          type: "option-account",
           price: null,
         },
         {
           img: "acc-random-10k.gif",
           name: "acc random 10k",
           numAcc: "3,900",
-					type: "option-account",
+          type: "option-account",
           price: "10.000đ",
         },
         {
           img: "acc-random-cap-1.gif",
           name: "acc random cấp 1",
           numAcc: "3,900",
-					type: "option-account",
+          type: "option-account",
           price: "25.000đ",
         },
         {
           img: "acc-random-cap-2.gif",
           name: "acc random cấp 2",
           numAcc: "3,900",
-					type: "option-account",
+          type: "option-account",
           price: "50.000đ",
         },
         {
           img: "acc-random-cap-3.gif",
           name: "acc random cấp 3",
           numAcc: "3,900",
-					type: "option-account",
+          type: "option-account",
           price: "100.000đ",
         },
         {
           img: "acc-random-cap-4.gif",
           name: "acc random cấp 4",
           numAcc: "3,900",
-					type: "option-account",
+          type: "option-account",
           price: "150.000đ",
         },
         {
           img: "acc-random-cap-5.gif",
           name: "acc random cấp 5",
           numAcc: "3,900",
-					type: "option-account",
+          type: "option-account",
           price: "250.000đ",
         },
       ],

@@ -8,6 +8,7 @@ import RegisterPage from "@/components/RegisterPage";
 import AccountCategories from "@/components/AccountCategories";
 import ListAccountsPage from "@/components/ListAccountsPage";
 import DetailAccountPage from "@/components/DetailAccountPage";
+import UserAccountPage from "@/components/UserAccountPage";
 
 Vue.use(VueRouter);
 
@@ -16,9 +17,22 @@ const routes = [
   { path: "/recharge", name: "RechargeOnline", component: RechargeOnlinePage },
   { path: "/login", name: "Login", component: LoginPage },
   { path: "/register", name: "Register", component: RegisterPage },
-  { path: "/account-categories/:categoryName", name: "AccountCategories", component: AccountCategories },
-  { path: "/account/:typeAccount", name: "ListAccountsPage", component: ListAccountsPage },
-  { path: "/detail/:accountID", name: "DetailAccountPage", component: DetailAccountPage },
+  { path: "/account", name: "UserAccountPage", component: UserAccountPage },
+  {
+    path: "/account-categories/:categoryName",
+    name: "AccountCategories",
+    component: AccountCategories,
+  },
+  {
+    path: "/account/:typeAccount",
+    name: "ListAccountsPage",
+    component: ListAccountsPage,
+  },
+  {
+    path: "/detail/:accountID",
+    name: "DetailAccountPage",
+    component: DetailAccountPage,
+  },
   { path: "*", component: HomePage },
 ];
 
