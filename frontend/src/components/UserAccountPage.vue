@@ -44,8 +44,8 @@
             <i class="fa fa-star" aria-hidden="true"></i> Nạp thẻ cào tự động
           </p>
           <p
-            @click="navigateTo('autoRechargeATM')"
-            :class="{ active: nav.autoRechargeATM }"
+            @click="navigateTo('autoAtmRecharge')"
+            :class="{ active: nav.autoAtmRecharge }"
           >
             <i class="fa fa-credit-card-alt" aria-hidden="true"></i> Nạp
             ATM/MOMO tự động
@@ -84,6 +84,9 @@
           <TransactionHistory v-show="nav.transactionHistory" />
           <ItemPurchaseHistory v-show="nav.itemPurchaseHistory" />
           <AccountPurchaseHistory v-show="nav.accountPurchaseHistory" />
+          <WithdrawItem v-show="nav.withdrawItem" />
+          <AutoRechargeCard v-show="nav.autoRechargeCard" />
+          <AutoAtmRecharge v-show="nav.autoAtmRecharge" />
         </div>
       </div>
     </div>
@@ -98,9 +101,23 @@ import RechargeHistory from "@/components/UserAccountComponents/RechargeHistory"
 import TransactionHistory from "@/components/UserAccountComponents/TransactionHistory";
 import ItemPurchaseHistory from "@/components/UserAccountComponents/ItemPurchaseHistory";
 import AccountPurchaseHistory from "@/components/UserAccountComponents/AccountPurchaseHistory";
+import WithdrawItem from "@/components/UserAccountComponents/WithdrawItem";
+import AutoRechargeCard from "@/components/UserAccountComponents/AutoRechargeCard";
+import AutoAtmRecharge from "@/components/UserAccountComponents/AutoAtmRecharge";
 
 export default {
-  components: { AccountInformations, ChangePassword, GameHistory, RechargeHistory, TransactionHistory, ItemPurchaseHistory, AccountPurchaseHistory },
+  components: {
+    AccountInformations,
+    ChangePassword,
+    GameHistory,
+    RechargeHistory,
+    TransactionHistory,
+    ItemPurchaseHistory,
+    AccountPurchaseHistory,
+    WithdrawItem,
+    AutoRechargeCard,
+    AutoAtmRecharge,
+  },
 
   data() {
     return {
@@ -110,7 +127,7 @@ export default {
         gameHistory: false,
         withdrawItem: false,
         autoRechargeCard: false,
-        autoRechargeATM: false,
+        autoAtmRecharge: false,
         rechargeHistory: false,
         transactionHistory: false,
         accountPurchaseHistory: false,
@@ -226,37 +243,44 @@ export default {
       .information {
         grid-column: span 9;
 
-				.table-style {
-					width: 100%;
+        .table-style {
+          width: 100%;
 
-					.wrap-history {
-						width: 100%;
-						overflow-x: auto;
+          .wrap-history {
+            width: 100%;
+            overflow-x: auto;
+          }
 
-						table {
-							width: 100%;
-							min-width : 700px;
-							margin-top: 15px;
+          table {
+            width: 100%;
+            min-width: 700px;
+            margin-top: 15px;
 
-							th {
-								text-transform: uppercase;
-							}
+            th {
+              text-transform: uppercase;
+            }
 
-							td {
-								text-align: left;
-							}
+            td {
+              text-align: left;
+            }
 
-							th, td {
-								text-align: left;
-								padding: 10px 0px;
-								font-size: 0.9rem;
-								border-bottom: 1px solid #dddddd;
-							}
-						}
-					}
+            th,
+            td {
+              text-align: left;
+              padding: 10px 0px;
+              font-size: 0.9rem;
+              border-bottom: 1px solid #dddddd;
+            }
+          }
 
-					.description { font-size: 0.9rem; }
-				}
+          .description {
+            font-size: 0.9rem;
+          }
+        }
+
+        .red-text {
+          color: var(--red-text);
+        }
       }
     }
   }
