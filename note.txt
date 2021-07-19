@@ -1,0 +1,2 @@
+cắt ảnh đầu vào khi thêm ảnh trong backend
+tải ảnh của tất cả skin liên minh huyển thoại
