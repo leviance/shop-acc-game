@@ -7,7 +7,7 @@
         <p><strong>Tên tài khoản</strong></p>
         <input type="text" placeholder="Nhập tên tài khoản" />
         <p><strong>Số điện thoại</strong></p>
-        <input type="text" placeholder="Nhập số điện thoại" />
+        <input type="number" placeholder="Nhập số điện thoại" />
         <p><strong>Mật khẩu</strong></p>
         <input type="password" placeholder="Nhập mật khẩu" />
         <p><strong>Nhập lại mật khẩu</strong></p>
@@ -19,7 +19,7 @@
           >
         </p>
       </div>
-      <div class="btn-login">Đăng ký</div>
+      <div class="btn-login" @click="sendRegisterReq">Đăng ký</div>
       <router-link class="btn-create-new" :to="{ name: 'Login' }">
         Đăng nhập
       </router-link>
@@ -28,14 +28,24 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   mounted() {
     this.$store.state.darkMode = false;
+    axios.post(`${process.env.VUE_APP_URL}/user-register`, {
+      name_account: "test",
+      phone_number: 123,
+      password: 2316371,
+    });
+  },
+
+  methods: {
+    sendRegisterReq() {
+      console.log(process.env.VUE_APP_URL);
+    },
   },
 };
 </script>
 
-<style lang="scss">
-.register-page {
-}
-</style>
+<style lang="scss"></style>

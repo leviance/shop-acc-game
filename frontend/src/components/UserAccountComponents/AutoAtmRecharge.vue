@@ -21,13 +21,34 @@
       <div class="detail" v-show="showAtmRecharge">
         <p class="red-text"><strong>THÔNG TIN TÀI KHOẢN NGÂN HÀNG</strong></p>
         <p class="red-text"><strong>CHỦ TÀI KHOẢN: TRẦN VIỆT TÙNG</strong></p>
-        <p class="red-text"><strong>VIETCOMBANK: 0451000413951</strong></p>
-        <div class="btn-copy copy-small"><span>Sao chép</span></div>
+        <p class="red-text">
+          <strong
+            >VIETCOMBANK:
+            <span ref="bankAcocuntNumber">0451000413951</span></strong
+          >
+        </p>
+        <div class="btn-copy copy-small">
+          <span
+            @click="copyValue('bankAcocuntNumber', 'coppybankAcocuntNumber')"
+            ref="coppybankAcocuntNumber"
+            >Sao chép</span
+          >
+        </div>
         <div class="border-grey"></div>
         <p>Nội dung chuyển khoản của bạn:</p>
         <div class="transfer-content">
-          <div class="code"><b class="red-text">guitien 745508</b></div>
-          <div class="btn-copy copy-big"><span>Sao chép</span></div>
+          <div class="code">
+            <b class="red-text" ref="bankTransferContent">guitien 745508</b>
+          </div>
+          <div class="btn-copy copy-big">
+            <span
+              @click="
+                copyValue('bankTransferContent', 'coppyBankTransferContent')
+              "
+              ref="coppyBankTransferContent"
+              >Sao chép</span
+            >
+          </div>
         </div>
         <div class="border-grey"></div>
         <div class="btn-transfer-confirm">
@@ -66,13 +87,33 @@
       <div class="detail" v-show="showMomoRecharge">
         <p class="red-text"><strong>THÔNG TIN VÍ ĐIỆN TỬ</strong></p>
         <p class="red-text"><strong>CHỦ TÀI KHOẢN: TRẦN VIỆT TÙNG</strong></p>
-        <p class="red-text"><strong>VÍ MOMO: 0398793456</strong></p>
-        <div class="btn-copy copy-small"><span>Sao chép</span></div>
+        <p class="red-text">
+          <strong
+            >VÍ MOMO: <span ref="momoAcountNumber">0398793456</span></strong
+          >
+        </p>
+        <div class="btn-copy copy-small">
+          <span
+            @click="copyValue('momoAcountNumber', 'coppyMomoAccountNumber')"
+            ref="coppyMomoAccountNumber"
+            >Sao chép</span
+          >
+        </div>
         <div class="border-grey"></div>
         <p>Nội dung chuyển khoản của bạn:</p>
         <div class="transfer-content">
-          <div class="code"><b class="red-text">guitien 745508</b></div>
-          <div class="btn-copy copy-big"><span>Sao chép</span></div>
+          <div class="code">
+            <b class="red-text" ref="momoTransferContent">guitien 745508</b>
+          </div>
+          <div class="btn-copy copy-big">
+            <span
+              @click="
+                copyValue('momoTransferContent', 'coppyMomoTransferContent')
+              "
+              ref="coppyMomoTransferContent"
+              >Sao chép</span
+            >
+          </div>
         </div>
         <div class="border-grey"></div>
         <img src="@/assets/images/momo-transfer.png" alt="" />
@@ -125,6 +166,19 @@ export default {
         this.showMomoRecharge = !this.showMomoRecharge;
         this.showAtmRecharge = false;
       }
+    },
+
+    copyValue(refValueName, refBtnName) {
+      let value = this.$refs[refValueName];
+      navigator.clipboard.writeText(value.innerHTML);
+
+      this.$refs[refBtnName].classList.add("coppied");
+      this.$refs[refBtnName].innerHTML = "Đã sao chép";
+
+      setTimeout(() => {
+        this.$refs[refBtnName].classList.remove("coppied");
+        this.$refs[refBtnName].innerHTML = "Sao chép";
+      }, 2000);
     },
   },
 };
@@ -195,6 +249,10 @@ export default {
           border-radius: 3px;
           cursor: pointer;
           text-align: center;
+        }
+
+        .coppied {
+          background-color: #00c500 !important;
         }
       }
       .copy-small {
