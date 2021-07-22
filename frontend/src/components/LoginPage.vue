@@ -1,15 +1,22 @@
 <template>
   <div class="login-page">
-    <div class="wrap-login-form">
+    <div v-on:keyup.enter="user_login" class="wrap-login-form">
       <p class="title"><strong>Đăng nhập tài khoản</strong></p>
       <div class="border-b"></div>
       <div class="form">
         <p><strong>Tên tài khoản</strong></p>
-        <input type="text" placeholder="Nhập tên tài khoản" />
+        <input
+          v-model="name_account"
+          type="text"
+          placeholder="Nhập tên tài khoản"
+        />
         <p><strong>Mật khẩu</strong></p>
-        <input type="password" placeholder="Nhập mật khẩu" />
+        <input v-model="password" type="password" placeholder="Nhập mật khẩu" />
+        <p v-if="error" class="error-message">
+          <strong>{{ error }}</strong>
+        </p>
       </div>
-      <div class="btn-login">Đăng nhập</div>
+      <div v-on:click="user_login" class="btn-login">Đăng nhập</div>
       <div class="btn-login-facebook">
         <i class="fa fa-facebook-official" aria-hidden="true"></i> Đăng nhập qua
         Facebook
@@ -22,9 +29,58 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
+  data() {
+    return {
+      name_account: null,
+      password: null,
+      error: null,
+    };
+  },
+
   mounted() {
     this.$store.state.darkMode = false;
+  },
+
+  methods: {
+    user_login() {
+      let _this = this;
+      let re = /^[a-zA-Z0-9]+$/i;
+
+      this.remove_error();
+
+      if (
+        this.name_account.length < 5 ||
+        this.name_account.length > 50 ||
+        !re.test(this.name_account) ||
+        this.password.length < 5 ||
+        this.password.length > 50 ||
+        !re.test(this.password)
+      ) {
+        this.error = "Tài khoản hoặc mật khẩu không chính xác!";
+        return false;
+      }
+
+      axios
+        .post(`${process.env.VUE_APP_URL}/user-login`, {
+          name_account: this.name_account,
+          password: this.password,
+        })
+        .then(() => {
+          this.$router.push("/");
+        })
+        .catch((errors) => {
+          if (errors.response) {
+            _this.error = errors.response.data;
+          }
+        });
+    },
+
+    remove_error() {
+      this.error = null;
+    },
   },
 };
 </script>
@@ -111,6 +167,12 @@ export default {
         left: 16px;
         transform: translateY(-50%);
       }
+    }
+
+    .error-message {
+      color: red;
+      font-size: 0.8rem !important;
+      text-align: center;
     }
   }
 }
