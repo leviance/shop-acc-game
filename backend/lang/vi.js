@@ -1,5 +1,14 @@
 module.exports.auth_message = {
-    name_account_invalid: 'Tên tài khoản không hợp lệ, tên tài khoản phải có độ dài từ 6 - 30 ký tự không được phép chứa ký tự đặc biệt',
-    password_invalid: "Mật khẩu phải chứa có độ dài từ 6 - 30 ký tự và chứa ít nhất 1 ký tự viết hoa, viết thường và số, không được chứa ký tự đặc biệt",
-    phone_number_invalid: "Số điện thoại bạn vừa nhập không chính xác, số điện thoại chỉ được phép có 10 ký tự số"
+    na_acc_too_short: 'Tên tài khoản phải có tối thiểu 5 ký tự',
+    na_acc_too_long: 'Tên tài khoản chỉ được phép có tối đa 50 ký tự',
+    na_acc_type: 'Tên tài khoản không được phép chứa ký tự đặc biệt',
+    password_length: "Mật khẩu phải có từ 5 - 50 ký tự",
+    password_type: "Mật khẩu không được chứa ký tự đặc biệt",
+    phone_number_invalid: "Số điện thoại bạn vừa nhập không chính xác!",
+    name_account_existed: "Tên tài khoản đã tồn tại, vui lòng sử dụng tên khác!",
+    create_success: "Tạo tài khoản thành công. Bây giờ bạn có thể đăng nhập vào tài khoản của mình",
+    unknown_error: "Đã có lỗi không xác định xảy ra, nếu lỗi này còn tiếp tục vui lòng liên hệ admin",
+    phone_number_existed: "Số điện thoại đã được đăng ký!",
+
+    login_invalid: "Tài khoản hoặc mật khẩu không đúng xin vui lòng kiểm tra lại."
 }

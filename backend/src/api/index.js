@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
+const { home_validation, auth_validation } = require("../validation/index");
+
 const {auth_controllers} = require("../controllers/index");
 
 function init_routes(app) {
@@ -10,7 +12,8 @@ function init_routes(app) {
     next();
   });
 
-  router.post('/user-register', auth_controllers.user_register );
+  router.post('/user-register', auth_validation.register, auth_controllers.user_register );
+  router.post('/user-login', auth_validation.login, auth_controllers.user_login );
 
   // catch 404 and forward to error handler
   router.use(function(req, res, next) {
