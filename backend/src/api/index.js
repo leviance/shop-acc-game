@@ -3,7 +3,7 @@ const router = express.Router();
 
 const { home_validation, auth_validation } = require("../validation/index");
 
-const {auth_controllers} = require("../controllers/index");
+const {auth_controllers, home_controllers} = require("../controllers/index");
 
 function init_routes(app) {
   app.use(function(req, res, next) {
@@ -14,6 +14,8 @@ function init_routes(app) {
 
   router.post('/user-register', auth_validation.register, auth_controllers.user_register );
   router.post('/user-login', auth_validation.login, auth_controllers.user_login );
+
+  router.get('/get-home-page-user-data', home_controllers.get_home_page_user_data);
 
   // catch 404 and forward to error handler
   router.use(function(req, res, next) {
