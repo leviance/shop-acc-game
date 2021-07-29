@@ -39,10 +39,10 @@
 </template>
 
 <script>
+import Vue from "vue";
+
 import RechargeOnline from "./HomeComponents/RechargeOnline";
 import ListGameAccount from "./HomeComponents/ListGameAccount";
-
-import axios from "axios";
 
 export default {
   components: { RechargeOnline, ListGameAccount },
@@ -62,11 +62,11 @@ export default {
   mounted() {
     this.$store.state.darkMode = true;
 
-    axios
-      .get(`${process.env.VUE_APP_URL}/get-home-page-user-data`)
-      .then((response) => {
+    Vue.axios.get(`${process.env.VUE_APP_URL}/get-home-page-user-data`).then(
+      (response) => {
         console.log(response);
-      });
+      }
+    );
   },
 };
 </script>

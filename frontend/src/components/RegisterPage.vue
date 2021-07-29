@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import Vue from "vue";
 
 export default {
   data() {
@@ -90,12 +90,11 @@ export default {
         return;
       }
 
-      axios
-        .post(`${process.env.VUE_APP_URL}/user-register`, {
-          name_account: name_account,
-          phone_number: phone_number,
-          password: password,
-        })
+      Vue.axios.post(`${process.env.VUE_APP_URL}/user-register`, {
+        name_account: name_account,
+        phone_number: phone_number,
+        password: password,
+      })
         .then((res) => {
           _this.remove_error();
           confirm(res.data);

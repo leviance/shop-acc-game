@@ -33,6 +33,9 @@ const user_login = async (req, res) => {
 
         req.session.user_id = user_data._id;
 
+        console.log(user_data._id);
+        console.log(req.session.user_id);
+
         return res.status(200).send();
     } catch (error) {
         res.status(500).send(error);
