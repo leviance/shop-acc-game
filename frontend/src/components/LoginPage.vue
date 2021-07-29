@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import Vue from "vue";
 
 export default {
   data() {
@@ -63,11 +63,10 @@ export default {
         return false;
       }
 
-      axios
-        .post(`${process.env.VUE_APP_URL}/user-login`, {
-          name_account: this.name_account,
-          password: this.password,
-        })
+      Vue.axios.post(`${process.env.VUE_APP_URL}/user-login`, {
+        name_account: this.name_account,
+        password: this.password,
+      })
         .then(() => {
           this.$router.push("/");
         })
