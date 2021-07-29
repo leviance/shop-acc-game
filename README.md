@@ -44,7 +44,7 @@
 <p><b><i>To make sure website run exactly, it require run both frontend and backend.</i></b></p>
 
 <h2>FAQ</h2>
-<p>If have any questions you can <b><a href="https://www.facebook.com/profile1.account.tab.id100009">send it for me</a></b> or <b>Gmail duongdung12a8@gmail.com</b></p>
+<p>If have any questions you can <b><a href="https://www.facebook.com/profile1.account.tab.id100009">send it for me</a></b> or Gmail: <b>duongdung12a8@gmail.com</b></p>
 
 <br>
 <h2>Happy codding!</h2>
