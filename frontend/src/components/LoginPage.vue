@@ -42,6 +42,9 @@ export default {
 
   mounted() {
     this.$store.state.darkMode = false;
+
+    console.log(this.$store.state.user_data);
+    if(this.$store.state.user_data.id_account) this.$router.push("/");
   },
 
   methods: {
@@ -67,7 +70,8 @@ export default {
         name_account: this.name_account,
         password: this.password,
       })
-        .then(() => {
+        .then((res) => {
+          this.$store.state.user_data = res.data;
           this.$router.push("/");
         })
         .catch((errors) => {

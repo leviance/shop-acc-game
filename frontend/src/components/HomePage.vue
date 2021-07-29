@@ -62,11 +62,16 @@ export default {
   mounted() {
     this.$store.state.darkMode = true;
 
-    Vue.axios.get(`${process.env.VUE_APP_URL}/get-home-page-user-data`).then(
-      (response) => {
-        console.log(response);
-      }
-    );
+    Vue.axios
+      .get(`${process.env.VUE_APP_URL}/get-home-page-user-data`)
+      .then((res) => {
+        if(res.data) {
+          this.$store.state.user_data = res.data;
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      })
   },
 };
 </script>

@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     darkMode: true,
+    user_data: {}
   },
   mutations: {},
   actions: {},
