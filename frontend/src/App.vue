@@ -26,23 +26,23 @@
           <i class="fa fa-bars" aria-hidden="true"></i>
         </div>
         <div class="nav-right">
-          <router-link :to="{ name: 'Login' }">
+          <router-link v-if="!is_login" :to="{ name: 'Login' }">
             <div class="btn-account">
               <strong>ĐĂNG NHẬP</strong>
             </div>
           </router-link>
-          <!-- <router-link to="/">
+          <router-link v-if="is_login" to="/">
             <div class="btn-account">
               <strong>TÀI KHOẢN</strong>
               <span>Ví: 0 VNĐ</span>
             </div>
-          </router-link> -->
-          <router-link :to="{ name: 'Register' }">
+          </router-link>
+          <router-link v-if="!is_login" :to="{ name: 'Register' }">
             <div class="btn-logout"><strong>ĐĂNG KÝ</strong></div>
           </router-link>
-          <!-- <router-link to="/">
+          <router-link v-if="is_login" to="/">
             <div class="btn-logout"><strong>ĐĂNG XUẤT</strong></div>
-          </router-link> -->
+          </router-link>
         </div>
       </div>
     </div>
@@ -72,6 +72,7 @@ export default {
   data() {
     return {
       showMenuMobile: false,
+
     };
   },
 
@@ -85,7 +86,17 @@ export default {
     darkMode() {
       return this.$store.state.darkMode;
     },
+
+    is_login() {
+      if(this.$store.state.user_data.id_account) {
+        return true;
+      }
+
+      return false;
+    }
   },
+
+
 };
 </script>
 

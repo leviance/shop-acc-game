@@ -21,6 +21,10 @@ let user_schema = new Schema({
 
 
 user_schema.statics = {
+  find_user_by_id(user_id) {
+    return this.findOne({"_id": user_id}).exec();
+  },
+
   find_by_name_account(name_account) {
     return this.findOne({"name_account": name_account}).exec();
   },
