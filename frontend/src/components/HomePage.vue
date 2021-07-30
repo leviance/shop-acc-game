@@ -39,8 +39,6 @@
 </template>
 
 <script>
-import Vue from "vue";
-
 import RechargeOnline from "./HomeComponents/RechargeOnline";
 import ListGameAccount from "./HomeComponents/ListGameAccount";
 
@@ -61,17 +59,7 @@ export default {
 
   mounted() {
     this.$store.state.darkMode = true;
-
-    Vue.axios
-      .get(`${process.env.VUE_APP_URL}/get-home-page-user-data`)
-      .then((res) => {
-        if(res.data) {
-          this.$store.state.user_data = res.data;
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      })
+    this.$store.commit("get_user_data");
   },
 };
 </script>
