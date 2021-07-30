@@ -94,29 +94,27 @@
 </template>
 
 <script>
-import AccountInformations from "@/components/UserAccountComponents/AccountInformations";
-import ChangePassword from "@/components/UserAccountComponents/ChangePassword";
-import GameHistory from "@/components/UserAccountComponents/GameHistory";
-import RechargeHistory from "@/components/UserAccountComponents/RechargeHistory";
-import TransactionHistory from "@/components/UserAccountComponents/TransactionHistory";
-import ItemPurchaseHistory from "@/components/UserAccountComponents/ItemPurchaseHistory";
-import AccountPurchaseHistory from "@/components/UserAccountComponents/AccountPurchaseHistory";
-import WithdrawItem from "@/components/UserAccountComponents/WithdrawItem";
-import AutoRechargeCard from "@/components/UserAccountComponents/AutoRechargeCard";
-import AutoAtmRecharge from "@/components/UserAccountComponents/AutoAtmRecharge";
-
 export default {
   components: {
-    AccountInformations,
-    ChangePassword,
-    GameHistory,
-    RechargeHistory,
-    TransactionHistory,
-    ItemPurchaseHistory,
-    AccountPurchaseHistory,
-    WithdrawItem,
-    AutoRechargeCard,
-    AutoAtmRecharge,
+    AccountInformations: () =>
+      import("@/components/UserAccountComponents/AccountInformations"),
+    ChangePassword: () =>
+      import("@/components/UserAccountComponents/ChangePassword"),
+    GameHistory: () => import("@/components/UserAccountComponents/GameHistory"),
+    RechargeHistory: () =>
+      import("@/components/UserAccountComponents/RechargeHistory"),
+    TransactionHistory: () =>
+      import("@/components/UserAccountComponents/TransactionHistory"),
+    ItemPurchaseHistory: () =>
+      import("@/components/UserAccountComponents/ItemPurchaseHistory"),
+    AccountPurchaseHistory: () =>
+      import("@/components/UserAccountComponents/AccountPurchaseHistory"),
+    WithdrawItem: () =>
+      import("@/components/UserAccountComponents/WithdrawItem"),
+    AutoRechargeCard: () =>
+      import("@/components/UserAccountComponents/AutoRechargeCard"),
+    AutoAtmRecharge: () =>
+      import("@/components/UserAccountComponents/AutoAtmRecharge"),
   },
 
   data() {
@@ -148,6 +146,7 @@ export default {
 
   mounted() {
     this.$store.state.darkMode = false;
+    this.$store.commit("get_user_data");
   },
 };
 </script>

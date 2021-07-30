@@ -31,7 +31,7 @@
               <strong>ĐĂNG NHẬP</strong>
             </div>
           </router-link>
-          <router-link v-if="is_login" to="/">
+          <router-link v-if="is_login" to="/account">
             <div class="btn-account">
               <strong>TÀI KHOẢN</strong>
               <span>Ví: 0 VNĐ</span>
@@ -41,7 +41,9 @@
             <div class="btn-logout"><strong>ĐĂNG KÝ</strong></div>
           </router-link>
           <router-link v-if="is_login" to="/">
-            <div class="btn-logout"><strong>ĐĂNG XUẤT</strong></div>
+            <div @click="user_logout" class="btn-logout">
+              <strong>ĐĂNG XUẤT</strong>
+            </div>
           </router-link>
         </div>
       </div>
@@ -68,17 +70,29 @@
 </template>
 
 <script>
+import Vue from "vue";
+
 export default {
   data() {
     return {
       showMenuMobile: false,
-
     };
   },
 
   methods: {
     toggleMenuMobile() {
       this.showMenuMobile = !this.showMenuMobile;
+    },
+
+    user_logout() {
+      Vue.axios
+        .get(`${process.env.VUE_APP_URL}/user-logout`)
+        .then(() => {
+          this.$store.state.user_data = {};
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
   },
 
@@ -88,15 +102,13 @@ export default {
     },
 
     is_login() {
-      if(this.$store.state.user_data.id_account) {
-        return true;
+      if (this.$store.state.user_data.id_account) {
+        return this.$store.state.user_data;
       }
 
       return false;
-    }
+    },
   },
-
-
 };
 </script>
 

@@ -22,6 +22,8 @@ function init_routes(app) {
     home_controllers.get_home_page_user_data
   );
 
+  router.get("/user-logout", home_controllers.user_logout);
+
   // catch 404 and forward to error handler
   router.use(function (req, res, next) {
     // respond with html page

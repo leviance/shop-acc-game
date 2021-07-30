@@ -71,8 +71,14 @@ export default {
     };
   },
 
-  mounted() {
+  async mounted() {
     this.$store.state.darkMode = false;
+    this.$store.commit("get_user_data");
+
+    let _this = this;
+    setTimeout(() => {
+      if (_this.$store.state.user_data.username) _this.$router.push("/");
+    }, 0);
   },
 
   methods: {
@@ -90,11 +96,12 @@ export default {
         return;
       }
 
-      Vue.axios.post(`${process.env.VUE_APP_URL}/user-register`, {
-        name_account: name_account,
-        phone_number: phone_number,
-        password: password,
-      })
+      Vue.axios
+        .post(`${process.env.VUE_APP_URL}/user-register`, {
+          name_account: name_account,
+          phone_number: phone_number,
+          password: password,
+        })
         .then((res) => {
           _this.remove_error();
           confirm(res.data);

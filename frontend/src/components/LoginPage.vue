@@ -42,9 +42,12 @@ export default {
 
   mounted() {
     this.$store.state.darkMode = false;
+    this.$store.commit("get_user_data");
 
-    console.log(this.$store.state.user_data);
-    if(this.$store.state.user_data.id_account) this.$router.push("/");
+    let _this = this;
+    setTimeout(() => {
+      if (_this.$store.state.user_data.username) _this.$router.push("/");
+    }, 0);
   },
 
   methods: {
@@ -66,10 +69,11 @@ export default {
         return false;
       }
 
-      Vue.axios.post(`${process.env.VUE_APP_URL}/user-login`, {
-        name_account: this.name_account,
-        password: this.password,
-      })
+      Vue.axios
+        .post(`${process.env.VUE_APP_URL}/user-login`, {
+          name_account: this.name_account,
+          password: this.password,
+        })
         .then((res) => {
           this.$store.state.user_data = res.data;
           this.$router.push("/");

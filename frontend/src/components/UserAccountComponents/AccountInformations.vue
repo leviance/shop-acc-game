@@ -6,20 +6,22 @@
       <tr>
         <td><p>id tài khoản</p></td>
         <td>
-          <p class="red-background"><span>745508</span></p>
+          <p class="red-background">
+            <span>{{ this.$store.state.user_data.id_account }}</span>
+          </p>
         </td>
       </tr>
       <tr>
         <td><p>tên hiển thị</p></td>
-        <td>Dũng Dương</td>
+        <td>{{ this.$store.state.user_data.username }}</td>
       </tr>
       <tr>
         <td><p>tên tài khoản</p></td>
-        <td>abc123123</td>
+        <td>{{ this.$store.state.user_data.name_account }}</td>
       </tr>
       <tr>
         <td><p>số điện thoại</p></td>
-        <td>0968268030</td>
+        <td>{{ this.$store.state.user_data.phone_number }}</td>
       </tr>
       <tr>
         <td><p>số dư</p></td>
@@ -37,7 +39,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data: () => {
+    return {
+      user_data: {},
+    };
+  },
+};
 </script>
 
 <style lang="scss">
